@@ -82,8 +82,8 @@ history = model.fit(
     callbacks=[tensorboard_cb, checkpoint_cb, earlystop_cb])
 
 # --- Export to SavedModel format ---
-model.save("mobilenetv2_cat_dog_saved_model")
-print("Model saved to 'mobilenetv2_cat_dog_saved_model'")
+model.save("cat_dog_classifier.keras")
+print("Model saved to 'cat_dog_classifier.keras'")
 
 # --- Export to TFLite format ---
 converter = tf.lite.TFLiteConverter.from_saved_model("mobilenetv2_cat_dog_saved_model")
