@@ -33,19 +33,6 @@ This project is a deep learning-based system for identifying cat breeds from ima
 | Cat Breed Identification | Gano Cat Breed Dataset (15 classes) | 5,625       | 15      | MobileNetV2 (fine-tuned) | ~81%         |
 | Dog Breed Identification | Stanford Dogs Dataset               | ~7,360      | 37      | MobileNetV2              | ~72%         |
 
-### Project Structure (Simplified)
-
-```
-.
-├── app.py                             # Flask backend server
-├── predict_cat_breed.py              # Inference script for cat breed classification
-├── cat_dataset/
-│   └── gano_split/                   # Train/validation split of cat breed images
-├── cat_breed_classifier_finetuned_6.keras  # Final trained model weights
-├── cat_class_indices.npy             # Mapping from class index to breed name
-├── templates/ or flutter/            # Frontend interface (web or mobile)
-└── README.md                         # Project documentation
-```
 
 ### Tech Stack
 
