@@ -4,8 +4,8 @@ This project is a deep learning-based system for identifying cat breeds from ima
 
 ### Features
 
-- **Cat Breed Recognition (15 classes)**  
-  Identifies the breed of a cat using a deep learning model based on MobileNetV2, fine-tuned on a labeled dataset of over 5,000 images.
+- **Cat/Dog Breed Recognition (15 classes)**  
+  Identifies the breed of a cat/dog using a deep learning model based on MobileNetV2, fine-tuned on a labeled dataset of over 5,000 images.
 
 - **Fur Color Detection**  
   Automatically extracts the dominant color from the cat image (e.g. white, gray, black, orange) using RGB heuristics.
