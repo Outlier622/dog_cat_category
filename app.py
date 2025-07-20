@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from predict_image import predict_single_image
 from PIL import Image
 from predict_breed import predict_dog_breed
-
+from predict_cat_breed import predict_cat_breed
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
@@ -78,6 +78,8 @@ def classify():
     breed, breed_conf = ("Unknown", 0)
     if animal.lower() == "dog":
         breed, breed_conf = predict_dog_breed(filepath)
+    elif animal.lower() == "cat":
+        breed, breed_conf = predict_cat_breed(filepath)
 
     # 颜色提取
     color = extract_dominant_color(filepath)
@@ -146,12 +148,22 @@ def breed_classification():
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
 
-    breed, confidence = predict_dog_breed(filepath)
+    animal, _ = predict_single_image(filepath)
+
+    # 根据类型选择品种识别模型
+    if animal.lower() == 'dog':
+        breed, confidence = predict_dog_breed(filepath)
+    elif animal.lower() == 'cat':
+        breed, confidence = predict_cat_breed(filepath)
+    else:
+        breed, confidence = "Unknown", 0
 
     return jsonify({
+        'animal': animal,
         'breed': breed,
         'confidence': round(confidence * 100, 2)
     })
+
 
 
 
